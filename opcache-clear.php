@@ -48,7 +48,7 @@ function run_opcc() {
 	// adds button to admin bar for easy access cache clearing
 	add_action( 'admin_bar_menu', 'add_toolbar_items', 96 );
 	function add_toolbar_items( $admin_bar ) {
-		if ( ini_get('opcache.enable') && opcache_get_status() ) {
+		if ( is_admin() && ini_get('opcache.enable') && opcache_get_status() ) {
 			$admin_bar->add_menu(
 				array(
 					'id'    => 'opcc',
